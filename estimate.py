@@ -31,6 +31,10 @@ class TestMC(unittest.TestCase):
 if _name_ == "_main_":
     unittest.main()
 
+
+
+
+
 def wallis(n):
     p = 1
     for i in range(1,n+1):
@@ -42,15 +46,16 @@ def wallis(n):
     return(p)
     
     
-import random
+
 def monte_carlo(n):
+    import random
     circle_points= 0
     square_points= 0
     for i in range(n):
         x= random.uniform(0, 1)
         y= random.uniform(0, 1)
         z= x**2 + y**2
-        z=math.sqrt(z)
+        z=z*0.5
         if z<= 1:
             circle_points+= 1
         square_points+= 1
