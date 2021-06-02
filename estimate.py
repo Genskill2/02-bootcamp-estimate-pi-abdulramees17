@@ -28,7 +28,7 @@ class TestMC(unittest.TestCase):
             self.assertTrue(abs(pi - math.pi) < 0.4, msg=f"Estimate with even {i} iterations is {pi} which is not accurate enough.\n")
         
     
-if _name_ == "_main_":
+if __name__ == "__main__":
     unittest.main()
 
 
@@ -61,3 +61,4 @@ def monte_carlo(n):
         square_points+= 1
     pi = 4*circle_points/square_points
     return(pi)
+
