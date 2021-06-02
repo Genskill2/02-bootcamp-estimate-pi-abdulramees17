@@ -1,6 +1,29 @@
 import math
 import unittest
 
+def wallis(n):
+    p = 1
+    for i in range(1,n+1):
+        p*=(4*(i**2))/(4*(i**2) - 1)
+    return(2*p)
+    
+    
+
+def monte_carlo(n):
+    import random
+    circle_points= 0
+    square_points= 0
+    for i in range(n):
+        x= random.uniform(-1, 1)
+        y= random.uniform(-1, 1)
+        z= x**2 + y**2
+        if z<= 1:
+            circle_points+= 1
+        square_points+= 1
+    pi = 4*circle_points/square_points
+    return(pi)
+    
+    
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
         for i in range(0, 5):
@@ -31,34 +54,4 @@ class TestMC(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-
-
-
-
-def wallis(n):
-    p = 1
-    for i in range(1,n+1):
-        x=(4*(i*2))
-        y=(4*(i**2) - 1)
-        z=x/y
-        p=p*z
-    p=p*2
-    return(p)
-    
-    
-
-def monte_carlo(n):
-    import random
-    circle_points= 0
-    square_points= 0
-    for i in range(n):
-        x= random.uniform(0, 1)
-        y= random.uniform(0, 1)
-        z= x**2 + y**2
-        z=z*0.5
-        if z<= 1:
-            circle_points+= 1
-        square_points+= 1
-    pi = 4*circle_points/square_points
-    return(pi)
 
